@@ -1,0 +1,6 @@
+{
+	"name": "adriancrepaz/sensible",
+	"description": "A PHP CodeSniffer Standard, using a cominbation of PEAR & PSR2, with sensible defaults.",
+	"type": "library",
+	"license": "MIT"
+}
