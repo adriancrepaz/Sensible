@@ -19,7 +19,7 @@
     <rule ref="Generic.Commenting.Fixme"/>
     <rule ref="Generic.Commenting.Todo"/>
     <rule ref="Generic.ControlStructures.InlineControlStructure"/>
-    <rule ref="Generic.Files.EndFileNewLine"/>
+    <rule ref="Generic.Files.EndFileNewline"/>
     <rule ref="Generic.Files.OneClassPerFile"/>
     <rule ref="Generic.Files.OneInterfacePerFile"/>
     <rule ref="Generic.Files.OneTraitPerFile"/>
@@ -81,12 +81,6 @@
         <properties>
             <property name="nestingLevel" value="3"/>
             <property name="absoluteNestingLevel" value="4"/>
-        </properties>
-    </rule>
-
-    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
-        <properties>
-            <property name="equalsSpacing" value="1"/>
         </properties>
     </rule>
 

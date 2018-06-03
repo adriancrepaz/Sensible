@@ -31,6 +31,11 @@ class DoctrineDateTimeTypesSniff extends AbstractVariableSniff
         ];
 
         $commentEnd = $phpcsFile->findPrevious($ignore, ($stackPtr - 1), null, true);
+
+        if(!isset($tokens[$commentEnd]['comment_opener'])){
+            return;
+        }
+
         $commentStart = $tokens[$commentEnd]['comment_opener'];
 
         $comment = '';
