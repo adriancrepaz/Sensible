@@ -108,4 +108,10 @@
             <property name="ignoreNewlines" value="true"/>
         </properties>
     </rule>
+    
+    <rule ref="Generic.Formatting.MultipleStatementAlignment">
+    <properties>
+        <property name="maxPadding" value="1"/>
+        <property name="ignoreMultiLine" value="false"/>
+    </properties>
 </ruleset>
