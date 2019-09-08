@@ -54,7 +54,7 @@ class VariableNameLengthSniff extends AbstractVariableSniff
         }
 
         if(strlen($varName) < 3 AND !in_array($varName, $this->allowed)){
-            $phpcsFile->addError('$' . $varName . ' is below the minimum character length of 3. Consider using something more descriptive.', $stackPtr, 997);
+            $phpcsFile->addError('$' . $varName . ' is below the minimum character length of 3. Consider using something more descriptive.', $stackPtr, 'MinimumVariableLength');
         }
     }
 
@@ -83,7 +83,7 @@ class VariableNameLengthSniff extends AbstractVariableSniff
         }
 
         if(strlen($varName) < 3 AND !in_array($varName, $this->allowed)){
-            $phpcsFile->addError('$' . $varName . ' is below the minimum character length of 3. Consider using something more descriptive.', $stackPtr, 997);
+            $phpcsFile->addError('$' . $varName . ' is below the minimum character length of 3. Consider using something more descriptive.', $stackPtr, 'MinimumPropertyLength');
         }
     }
 
