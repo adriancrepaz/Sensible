@@ -1,8 +1,8 @@
 <?php
 
 /**
- * This rule is based off of the Squiz version,
- * the only change is this allows inline docblocks for annotating variables.
+ * This rule is based off of the Squiz version.
+ * The only change is allowing DocBlocks within functions & methods.
  *
  * @author    Greg Sherwood <gsherwood@squiz.net>
  * @copyright 2006-2015 Squiz Pty Ltd (ABN 77 084 670 600)
@@ -117,15 +117,7 @@ class InlineCommentSniff implements Sniff
             if ($tokens[$prevToken]['code'] === T_OPEN_TAG) {
                 return;
             }
-
-            if ($tokens[$stackPtr]['content'] === '/**') {
-
-                if($tokens[$stackPtr]['line'] !== $tokens[$tokens[$stackPtr]['comment_closer']]['line']){
-
-                    $error = 'Inline doc block comments are not allowed; use "/* Comment */" or "// Comment" instead';
-                    $phpcsFile->addError($error, $stackPtr, 'DocBlock');
-                }
-            }
+            
         }//end if
 
         if ($tokens[$stackPtr]['content']{0} === '#') {
