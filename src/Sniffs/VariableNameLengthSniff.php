@@ -16,7 +16,9 @@ class VariableNameLengthSniff extends AbstractVariableSniff
      * @var array
      */
     private $allowed = [
-        'id'
+        'id',
+        'to,
+        'i'
     ];
 
     /**
