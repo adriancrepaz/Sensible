@@ -314,20 +314,25 @@ class InlineCommentSniff implements Sniff
                     break;
                 }
             }
+            
+            $previousComment = $phpcsFile->findPrevious(T_COMMENT, $lastCommentToken - 1);
+            
+            if(!$previousComment OR $tokens[$previousComment]['line'] !== ($tokens[$lastCommentToken]['line'] - 1)){
 
-            $error = 'There must be no blank line following an inline comment';
-            $fix   = $phpcsFile->addFixableError($error, $lastCommentToken, $errorCode);
-            if ($fix === true) {
-                $phpcsFile->fixer->beginChangeset();
-                for ($i = ($lastCommentToken + 1); $i < $next; $i++) {
-                    if ($tokens[$i]['line'] === $tokens[$next]['line']) {
-                        break;
+                $error = 'There must be no blank line following an inline comment';
+                $fix   = $phpcsFile->addFixableError($error, $lastCommentToken, $errorCode);
+                if ($fix === true) {
+                    $phpcsFile->fixer->beginChangeset();
+                    for ($i = ($lastCommentToken + 1); $i < $next; $i++) {
+                        if ($tokens[$i]['line'] === $tokens[$next]['line']) {
+                            break;
+                        }
+
+                        $phpcsFile->fixer->replaceToken($i, '');
                     }
 
-                    $phpcsFile->fixer->replaceToken($i, '');
+                    $phpcsFile->fixer->endChangeset();
                 }
-
-                $phpcsFile->fixer->endChangeset();
             }
         }//end if
 
